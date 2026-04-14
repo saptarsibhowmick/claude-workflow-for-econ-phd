@@ -1,0 +1,68 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(Rscript *)",
+      "Bash(R CMD *)",
+      "Bash(python3 *)",
+      "Bash(stata-mp *)",
+      "Bash(stata *)",
+      "Bash(xelatex *)",
+      "Bash(bibtex *)",
+      "Bash(latexmk *)",
+      "Bash(quarto *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(mkdir *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(ls *)",
+      "Bash(diff *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(rm -r data/raw/*)",
+      "Bash(rm data/raw/*)",
+      "Bash(cat data/raw/restricted/*)",
+      "Bash(head data/raw/restricted/*)",
+      "Bash(less data/raw/restricted/*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import sys,json; d=json.loads(sys.stdin.read()); p=d.get('tool_input',{}).get('path','') or d.get('tool_input',{}).get('command',''); blocked=['bibliography.bib','settings.json','data/raw/']; sys.exit(2 if any(b in p for b in blocked) and 'deprecated' not in p else 0)\""
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import datetime,os; f=f'session-logs/context-snapshot-{datetime.datetime.now().strftime(\\\"%Y-%m-%d_%H%M\\\")}.md'; os.makedirs('session-logs',exist_ok=True); open(f,'w').write('# Context Snapshot (Pre-Compaction)\\n\\nSaved automatically before context compression.\\nClaude should read this file to restore state.\\n'); print(f'Context snapshot saved to {f}')\""
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import glob; snaps=sorted(glob.glob('session-logs/context-snapshot-*.md')); print(f'Latest context snapshot: {snaps[-1]}' if snaps else 'No context snapshots found')\""
+          }
+        ]
+      }
+    ]
+  }
+}

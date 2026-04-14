@@ -1,0 +1,55 @@
+# Data — large files
+data/raw/restricted/
+data/processed/*.csv
+data/processed/*.dta
+data/processed/*.rds
+data/processed/*.parquet
+data/processed/_deprecated/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Stata
+*.smcl
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# IDE
+.vscode/
+.idea/
+
+# NEVER ignore these
+!_deprecated/
+!_deprecation-log.md
+!session-logs/
+!correspondence/
+!quality_reports/
