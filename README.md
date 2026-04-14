@@ -14,7 +14,7 @@ A ready-to-fork project structure for a PhD dissertation consisting of **multipl
 
 - **Complete directory structure** for a multi-paper dissertation with master literature review
 - **File safety system** — Claude never deletes or modifies files; everything uses deprecate-and-replace
-- **13 rules** (always-on and path-scoped) governing code conventions, coding discipline, quality, and workflow
+- **14 rules** (always-on and path-scoped) governing code conventions, coding discipline, privacy, quality, and workflow
 - **8 custom skills** (`/setup`, `/missing-lit`, `/research-ideas`, `/blindspot`, `/referee2`, `/new-paper`, `/deprecate`, `/devils-advocate`)
 - **11 agent definitions** (strategist, coder, writer, domain-referee, methods-referee, and their critics)
 - **4 hooks** for file protection, context survival, and session management
@@ -432,6 +432,8 @@ These are drawn from the four source frameworks and encoded into the scaffold's 
 7. **If it's not documented, it didn't happen.** Every audit produces a report. Every response is filed. Every session produces a log. (Cunningham)
 
 8. **Plan first, then execute.** Complex tasks start with a requirements spec, then a plan, then execution. (P. Sant'Anna)
+
+9. **Your ideas are confidential.** Research questions, identification strategies, preliminary findings, and draft manuscripts never appear in search queries, commit messages, or any public-facing context. Strategy memos are treated with the same sensitivity as restricted data.
 
 ---
 

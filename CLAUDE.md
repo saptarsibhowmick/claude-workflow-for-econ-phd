@@ -37,6 +37,9 @@ During estimation, focus on specification correctness. Do not interpret point es
 Article VII: DOCUMENTATION TRAIL
 Every audit produces a dated report. Every response is filed. Every session produces a log.
 
+Article VIII: INTELLECTUAL PROPERTY
+All research ideas, strategies, findings, and manuscripts are confidential. Never expose project content in search queries, commit messages, external services, or any public-facing context. Strategy memos are maximally sensitive — being scooped is a career-level risk. See `.claude/rules/privacy.md`.
+
 ---
 
 ## Project Overview
