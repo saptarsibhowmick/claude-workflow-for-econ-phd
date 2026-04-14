@@ -14,7 +14,7 @@ A ready-to-fork project structure for a PhD dissertation consisting of **multipl
 
 - **Complete directory structure** for a multi-paper dissertation with master literature review
 - **File safety system** — Claude never deletes or modifies files; everything uses deprecate-and-replace
-- **12 rules** (always-on and path-scoped) governing code conventions, quality, and workflow
+- **13 rules** (always-on and path-scoped) governing code conventions, coding discipline, quality, and workflow
 - **8 custom skills** (`/setup`, `/missing-lit`, `/research-ideas`, `/blindspot`, `/referee2`, `/new-paper`, `/deprecate`, `/devils-advocate`)
 - **11 agent definitions** (strategist, coder, writer, domain-referee, methods-referee, and their critics)
 - **4 hooks** for file protection, context survival, and session management
@@ -466,6 +466,10 @@ Paul provided the pedagogical foundation that makes the other three frameworks a
 ### A Note to Users
 
 If this scaffold helps your research, consider citing or acknowledging these four authors in your work. They shared their workflows openly so the community could build on them. Pass it forward.
+
+### Also Incorporated
+
+**Andrej Karpathy** — [Coding discipline principles](https://github.com/forrestchang/andrej-karpathy-skills) (via Forrest Chang's implementation). Four rules that govern *how* Claude behaves while coding: think before coding (don't assume, surface confusion), simplicity first (minimum code, nothing speculative), surgical changes (touch only what you must), and goal-driven execution (transform tasks into verifiable goals). These complement the scaffold's *what-to-do* rules with *how-to-do-it* discipline.
 
 ---
 
