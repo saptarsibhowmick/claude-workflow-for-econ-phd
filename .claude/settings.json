@@ -39,7 +39,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 -c \"import sys,json; d=json.loads(sys.stdin.read()); p=d.get('tool_input',{}).get('path','') or d.get('tool_input',{}).get('command',''); blocked=['bibliography.bib','settings.json','data/raw/']; sys.exit(2 if any(b in p for b in blocked) and 'deprecated' not in p else 0)\""
+            "command": "python3 -c \"import sys,json; d=json.loads(sys.stdin.read()); p=d.get('tool_input',{}).get('path','') or d.get('tool_input',{}).get('command',''); blocked=['bibliography.bib','settings.json','data/raw/restricted']; sys.exit(2 if any(b in p for b in blocked) and 'deprecated' not in p else 0)\""
           }
         ]
       }
