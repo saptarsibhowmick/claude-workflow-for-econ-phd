@@ -15,7 +15,7 @@ A ready-to-fork project structure for a PhD dissertation consisting of **multipl
 - **Complete directory structure** for a multi-paper dissertation with master literature review
 - **File safety system** — Claude never deletes or modifies files; everything uses deprecate-and-replace
 - **14 rules** (always-on and path-scoped) governing code conventions, coding discipline, privacy, quality, and workflow
-- **8 custom skills** (`/setup`, `/missing-lit`, `/research-ideas`, `/blindspot`, `/referee2`, `/new-paper`, `/deprecate`, `/devils-advocate`)
+- **9 custom skills** (`/setup`, `/done`, `/missing-lit`, `/research-ideas`, `/blindspot`, `/referee2`, `/new-paper`, `/deprecate`, `/devils-advocate`)
 - **11 agent definitions** (strategist, coder, writer, domain-referee, methods-referee, and their critics)
 - **4 hooks** for file protection, context survival, and session management
 - **Three-layer verification** — continuous checks → cross-language replication → Referee 2 audit
@@ -126,6 +126,28 @@ Run once when you start your dissertation. Checks prerequisites and builds your 
 6. Fills in CLAUDE.md, domain profile, journal profiles, notation registry
 7. Updates dissertation chapter structure
 8. Commits the configured scaffold
+
+---
+
+### `/done` — End-of-Session Shutdown
+
+Run before exiting Claude Code. Handles the full shutdown sequence automatically.
+
+```
+/done
+```
+
+**What it does:**
+1. Writes a session log to `session-logs/` (goal, actions, decisions, open questions, where to pick up)
+2. Scans the conversation for corrections → appends `[LEARN:tag]` entries to MEMORY.md
+3. Updates the paper's CLAUDE.md if key decisions were made (deprecate-and-replace)
+4. Stages all files with `git add -A`
+5. Tells you to review and run `git commit -m "..." && git push`
+
+**Session cycle:**
+- Start: `claude` → `"Read the latest session log and tell me where we left off."`
+- Work: do your tasks
+- End: `/done` → review → commit → `/exit`
 
 ---
 

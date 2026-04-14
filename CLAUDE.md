@@ -82,6 +82,7 @@ Each paper follows: `pre-analysis-plan/ → data/ → code/ → output/ → pape
 | Command | What It Does |
 |---|---|
 | `/setup` | First-time project setup — checks Zotero, asks paper count, generates structure |
+| `/done` | End-of-session shutdown — saves log, updates MEMORY.md, stages commit |
 | `/missing-lit` | Find gaps in the literature |
 | `/research-ideas` | Generate empirical questions |
 | `/blindspot` | Peripheral vision audit on results |

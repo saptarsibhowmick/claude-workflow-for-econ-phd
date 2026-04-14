@@ -25,14 +25,24 @@ Claude auto-reads `CLAUDE.md` and `MEMORY.md`. Your first message should either 
 
 ### Ending a Session
 
-Before closing, always say:
+Run the shutdown skill:
 
-> "Write a session log to session-logs/ covering what we did, decisions made, open questions, and where to pick up."
-
-Then commit:
-```bash
-git add -A && git commit -m "session YYYY-MM-DD: [brief description]"
 ```
+/done
+```
+
+This automatically:
+1. Writes a session log to `session-logs/`
+2. Updates MEMORY.md with any `[LEARN]` corrections from this session
+3. Updates the paper's CLAUDE.md if key decisions were made
+4. Stages all files with `git add -A`
+
+Then review and commit:
+```bash
+git commit -m "session YYYY-MM-DD: [brief description]" && git push
+```
+
+Then `/exit` or `Ctrl+C`.
 
 ---
 
@@ -40,6 +50,8 @@ git add -A && git commit -m "session YYYY-MM-DD: [brief description]"
 
 | Command | What It Does | When to Use |
 |---|---|---|
+| `/setup` | Check Zotero, configure project, generate paper dirs | Once at start |
+| `/done` | End-of-session shutdown — log, MEMORY.md, commit | Every session end |
 | `/missing-lit` | Scan literature for gaps | Every 4–6 weeks |
 | `/research-ideas` | Generate empirical questions | After major lit additions |
 | `/blindspot` | Peripheral vision audit (FRESH TERMINAL) | After results, before writing |
