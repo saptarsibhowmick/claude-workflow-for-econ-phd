@@ -78,7 +78,15 @@ The setup skill will:
 
 ### 3a. Check Zotero MCP Connection
 
-Claude will test whether Zotero MCP is connected. If it's not, you'll see installation instructions pointing to one of several Zotero MCP options:
+Claude will test whether Zotero MCP is connected. If it's not, Claude will attempt to auto-register it by running:
+
+```bash
+claude mcp add zotero -- uvx zotero-mcp serve
+```
+
+If auto-registration succeeds, you'll need to restart Claude Code and run `/setup` again for the connection to take effect.
+
+If auto-registration fails (e.g., `uvx` not installed), you'll see manual installation options:
 
 | MCP Server | Language | Key Feature | Link |
 |---|---|---|---|

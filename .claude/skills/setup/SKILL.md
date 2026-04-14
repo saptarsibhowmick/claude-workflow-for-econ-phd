@@ -19,35 +19,52 @@ Before anything else, verify that Zotero MCP is connected.
 - Proceed to Step 1b.
 
 **If the call fails or the tool is not available:**
+
+**Step 1a: Auto-add Zotero MCP to Claude Code**
+
+Attempt to register Zotero MCP automatically by running:
+
+```bash
+claude mcp add zotero -- uvx zotero-mcp serve
+```
+
+If this command succeeds, report:
+```
+Zotero MCP has been added to your Claude Code configuration.
+Please restart Claude Code and run /setup again for the connection to take effect.
+```
+Then STOP. The user must restart Claude Code for the new MCP to load.
+
+**If the auto-add command fails** (e.g., `uvx` not found, network error):
 - Report:
   ```
-  ✗ Zotero MCP is not connected.
+  ✗ Could not auto-add Zotero MCP.
   
-  This scaffold is designed to work with Zotero for literature management.
-  You have several options for connecting Zotero:
+  This scaffold requires Zotero MCP for literature management.
+  Please install it manually:
   
-  RECOMMENDED:
-  • zotero-mcp by 54yyyu (Python, most feature-rich):
-    https://github.com/54yyyu/zotero-mcp
-    Install: pip install zotero-mcp-server && zotero-mcp setup
+  OPTION 1 — If you have uv installed:
+    Run in your terminal (outside Claude Code):
+    claude mcp add zotero -- uvx zotero-mcp serve
   
-  ALTERNATIVES:
-  • zotero-mcp plugin by cookjohn (Zotero 7 plugin, write access):
-    https://github.com/cookjohn/zotero-mcp
-  • mcp-zotero by kaliaboi (Node.js, lightweight):
-    https://github.com/kaliaboi/mcp-zotero
-  • mcp-pyzotero by gyger (Python, local API):
-    https://github.com/gyger/mcp-pyzotero
+  OPTION 2 — If you installed via pip:
+    claude mcp add zotero -- zotero-mcp serve
+  
+  OPTION 3 — Install from scratch:
+    pip install zotero-mcp-server
+    claude mcp add zotero -- zotero-mcp serve
+  
+  For other Zotero MCP options see:
+    • zotero-mcp (recommended): https://github.com/54yyyu/zotero-mcp
+    • zotero-mcp plugin: https://github.com/cookjohn/zotero-mcp
+    • mcp-zotero: https://github.com/kaliaboi/mcp-zotero
   
   ALSO RECOMMENDED — Desktop Commander MCP:
     https://github.com/wonderwhy-er/DesktopCommanderMCP
     Install: npx @wonderwhy-er/desktop-commander@latest setup
     
     Desktop Commander gives Claude full filesystem access and native PDF
-    reading capabilities. This significantly improves the reliability of
-    reading PDFs from your Zotero Library folder during literature note
-    creation. Without it, Claude may struggle to access PDFs stored outside
-    the project directory.
+    reading capabilities, improving reliability of reading Zotero PDFs.
   
   After installing, restart Claude Code and run /setup again.
   ```

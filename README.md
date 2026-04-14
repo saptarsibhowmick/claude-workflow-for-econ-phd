@@ -60,14 +60,14 @@ A ready-to-fork project structure for a PhD dissertation consisting of **multipl
 ### Step 1: Fork & Clone
 
 ```bash
-gh repo fork YOUR_USERNAME/claude-workflow-for-econ-phd --clone
+gh repo fork saptarsibhowmick/claude-workflow-for-econ-phd --clone
 cd claude-workflow-for-econ-phd
 ```
 
 Or manually:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/claude-workflow-for-econ-phd.git
+git clone https://github.com/saptarsibhowmick/claude-workflow-for-econ-phd.git
 cd claude-workflow-for-econ-phd
 ```
 
@@ -86,7 +86,7 @@ Claude will check your Zotero connection, ask how many papers your dissertation 
 ```
 
 Claude will:
-1. Check if Zotero MCP is connected (points you to installation if not)
+1. Check if Zotero MCP is connected (auto-registers via `claude mcp add` if not — restart required)
 2. Ask for your dissertation topic, paper count, and details for each paper
 3. Generate `paper-1/` through `paper-N/` directories from the template
 4. Fill in CLAUDE.md, domain profile, journal profiles, and notation registry
@@ -118,7 +118,7 @@ Run once when you start your dissertation. Checks prerequisites and builds your 
 ```
 
 **What it does:**
-1. Tests Zotero MCP connection → points to installation if missing
+1. Tests Zotero MCP connection → auto-runs `claude mcp add zotero -- uvx zotero-mcp serve` if not connected (restart required after)
 2. Verifies Better BibTeX is installed → points to [retorque.re/zotero-better-bibtex](https://retorque.re/zotero-better-bibtex/) if missing
 3. Asks for your Zotero PDF folder path → saves to `literature/zotero-config.md`
 4. Asks: dissertation topic, number of papers, details for each paper, primary language, name/institution/supervisor, target journals, field/subfields
